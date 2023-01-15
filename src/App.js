@@ -6,12 +6,7 @@ let todoList = [
   { id: 3, title: "Study" },
 ];
 
-let list = todoList.map((item, index) => (
-  <li key={index}>
-    {" "}
-    {item.id} : {item.title}{" "}
-  </li>
-));
+let list = todoList.map((item) => <li key={item.id}>{item.title}</li>);
 
 function App() {
   return (
