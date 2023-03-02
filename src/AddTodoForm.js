@@ -9,8 +9,8 @@ function AddTodoForm({ onAddTodo }) {
     setTodoTitle(newTodoTitle);
   }
 
-  function handleAddTodo(event) {
-    event.preventDefault();
+  function handleAddTodo() {
+    // event.preventDefault();
 
     onAddTodo({ title: todoTitle, id: Date.now() });
     setTodoTitle("");
