@@ -3,15 +3,15 @@ import InputWithLabel from "./InputWithLabel";
 
 function AddTodoForm({ onAddTodo }) {
   const [todoTitle, setTodoTitle] = useState("");
+
   function handleTitleChange(event) {
     const newTodoTitle = event.target.value;
-    console.log(newTodoTitle);
+    // console.log(newTodoTitle);
     setTodoTitle(newTodoTitle);
   }
 
-  function handleAddTodo() {
-    // event.preventDefault();
-
+  function handleAddTodo(event) {
+    event.preventDefault();
     onAddTodo({ title: todoTitle, id: Date.now() });
     setTodoTitle("");
   }
@@ -23,7 +23,7 @@ function AddTodoForm({ onAddTodo }) {
           handleTitleChange={handleTitleChange}
           todoTitle={todoTitle}
         >
-          Title:{" "}
+          Title
         </InputWithLabel>
         <button type="submit">Add</button>
       </form>
