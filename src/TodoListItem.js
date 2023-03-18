@@ -5,7 +5,7 @@ function TodoListItem({ item, onRemoveTodo }) {
     <>
       <li>
         {" "}
-        {item.title}{" "}
+        {item.fields.Title}{" "}
         <button type="button" onClick={() => onRemoveTodo(item)}>
           Remove
         </button>{" "}
