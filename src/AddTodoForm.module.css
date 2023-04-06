@@ -1,0 +1,27 @@
+.button {
+  color: white;
+  background-color: #116238;
+  padding: 10px;
+  margin: 5px 10px;
+  border-radius: 14px;
+  border: 1px solid #116238;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: #1eb380;
+  box-shadow: 5px 5px #2726267d;
+}
+
+@media (max-width: 800px) {
+  .button {
+    background-color: rgb(161, 104, 161);
+    border: 1px solid rgb(161, 104, 161);
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .button:hover {
+    background-color: pink;
+  }
+}
