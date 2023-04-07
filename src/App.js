@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TodoList from "./TodoList";
 import AddTodoForm from "./AddTodoForm";
+import styles from "./App.module.css";
 
 const url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`;
 
@@ -48,15 +49,15 @@ function App() {
           exact
           path="/"
           element={
-            <>
-              <h1>Todo list</h1>
+            <div className={styles.container}>
+              <h1 className={styles.h1}>Todo list</h1>
               <AddTodoForm onAddTodo={addTodo} />
               {isLoading ? (
                 <p> Loading... </p>
               ) : (
                 <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
               )}
-            </>
+            </div>
           }
         />
         <Route path="/new" element={<h1>New Todo List</h1>} />
