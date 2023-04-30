@@ -6,12 +6,11 @@ function TodoListItem({ item, onRemoveTodo }) {
   return (
     <>
       <li className={styles.ListItem}>
-        {" "}
-        {item.fields.Title}{" "}
+        {item.fields?.Title ? item.fields.Title : item.title}
         <button
           className={styles.button}
           type="button"
-          onClick={() => onRemoveTodo(item)}
+          onClick={() => onRemoveTodo(item.id)}
         >
           Remove
         </button>{" "}
