@@ -5,17 +5,27 @@
   display: block;
 }
 
+.dateMade {
+  color: gray;
+  font-size: 10px;
+  margin: 10px;
+}
+
 .button {
   color: white;
   background-color: #115436;
-  padding: 10px;
+  padding: 5px 7px;
   margin: 3px;
   border-radius: 15px;
   border: 1px solid #2e8257;
 }
 .button:hover {
   cursor: pointer;
-  background-color: #1eb380;
+  background: linear-gradient(
+    180.5deg,
+    rgb(0, 128, 128) 8.5%,
+    rgb(174, 206, 100) 118.2%
+  );
   box-shadow: 5px 5px #2726267d;
 }
 @media (max-width: 800px) {

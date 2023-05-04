@@ -18,6 +18,32 @@ body {
   font-size: 50px;
 }
 
+.order {
+  color: white;
+  background-color: #116238;
+  padding: 5px 7px;
+  margin: 5px 10px;
+  border-radius: 14px;
+  border: 1px solid #116238;
+}
+.order:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    180.5deg,
+    rgb(0, 128, 128) 8.5%,
+    rgb(174, 206, 100) 118.2%
+  );
+  box-shadow: 5px 5px #2726267d;
+}
+
+.currentDay {
+  background-color: linear-gradient(
+    to right,
+    rgb(182, 244, 146),
+    rgb(51, 139, 147)
+  );
+}
+
 @media (max-width: 800px) {
   body {
     background-color: rgb(250, 185, 226);

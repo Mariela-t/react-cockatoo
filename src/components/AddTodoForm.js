@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import InputWithLabel from "./InputWithLabel";
 import styles from "./AddTodoForm.module.css";
 import PropTypes from "prop-types";
+import { MdAddCircleOutline } from "react-icons/md";
 
 function AddTodoForm({ onAddTodo }) {
   const [todoTitle, setTodoTitle] = useState("");
@@ -24,10 +25,10 @@ function AddTodoForm({ onAddTodo }) {
           handleTitleChange={handleTitleChange}
           todoTitle={todoTitle}
         >
-          Title
+          Task
         </InputWithLabel>
         <button className={styles.button} type="submit">
-          Add
+          <MdAddCircleOutline />
         </button>
       </form>
     </div>
