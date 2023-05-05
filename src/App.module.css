@@ -1,16 +1,22 @@
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-image: url("./img/flowers1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 .container {
   /* background-color: #048456; */
-  background-color: #93d2be;
+  background-color: #93d2beb4;
   text-align: center;
   height: 100vw;
   padding: 20px;
   margin: 15px 225px 50px 225px;
   border-radius: 50px;
   border: 10px solid #115436;
+  box-shadow: 10px 10px #2726267d;
 }
 
 .h1 {
@@ -46,18 +52,18 @@ body {
 
 @media (max-width: 800px) {
   body {
-    background-color: rgb(250, 185, 226);
     font-family: monospace;
   }
   .container {
-    background-color: rgb(250, 185, 226);
+    background-color: #93d2beb4;
     text-align: justify;
-    margin: 5px 5px 5px 50px;
+    margin: 30px 5px 5px 15px;
     border: 0;
+    height: 150vw;
   }
   .h1 {
     color: black;
     margin-left: 70px;
-    font-size: 35px;
+    font-size: 15px;
   }
 }

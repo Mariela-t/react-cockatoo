@@ -30,17 +30,21 @@
 }
 @media (max-width: 800px) {
   .ListItem {
-    margin: 10px 6px 10px 40px;
+    margin: 10px 6px 10px 0px;
   }
 
   .button {
-    background-color: rgb(161, 104, 161);
-    border: 1px solid rgb(161, 104, 161);
+    background-color: #115436;
+    border: 1px solid #115436;
     padding: 8px;
     font-size: 10px;
   }
 
   .button:hover {
-    background-color: pink;
+    background: linear-gradient(
+      180.5deg,
+      rgb(0, 128, 128) 8.5%,
+      rgb(174, 206, 100) 118.2%
+    );
   }
 }

@@ -5,6 +5,7 @@ import AddTodoForm from "./components/AddTodoForm";
 import styles from "./App.module.css";
 import Navbar from "./components/Navbar";
 import { MdOutlineSortByAlpha } from "react-icons/md";
+import Quote from "./components/Quote";
 
 const url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`;
 
@@ -116,7 +117,7 @@ function App() {
           path="/"
           element={
             <div className={styles.container}>
-              <h1 className={styles.h1}>Todo list</h1>
+              <h1 className={styles.h1}>To do list</h1>
               <FormattedDate />
               <AddTodoForm onAddTodo={addTodo} />
 
@@ -140,7 +141,7 @@ function App() {
             </div>
           }
         />
-        <Route path="/new" element={<h1>New Todo List</h1>} />
+        <Route path="/quote" element={<Quote />} />
       </Routes>
     </BrowserRouter>
   );
