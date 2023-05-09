@@ -1,0 +1,27 @@
+.bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  overflow: hidden;
+  background-color: #105435cf;
+}
+
+.list {
+  float: left;
+}
+
+.link {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.link:hover {
+  background: linear-gradient(
+    180.5deg,
+    rgba(0, 128, 128, 0.839) 8.5%,
+    rgba(174, 206, 100, 0.834) 118.2%
+  );
+}

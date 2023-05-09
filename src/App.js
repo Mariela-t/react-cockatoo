@@ -4,9 +4,12 @@ import TodoList from "./components/TodoList";
 import AddTodoForm from "./components/AddTodoForm";
 import styles from "./App.module.css";
 import Navbar from "./components/Navbar";
+import { MdOutlineSortByAlpha } from "react-icons/md";
+import Quote from "./components/Quote";
 
 const url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`;
 
+//could add at the end of url for sorting instead of using JS
 //Grid%20view&sort[0][field]=Title&sort[0][direction]=asc
 
 function App() {
@@ -23,16 +26,17 @@ function App() {
     };
     fetch(url, options)
       .then((response) => response.json())
+
       .then((result) => {
         order
-          ? result.records.sort((objectA, objectB) => {
-              if (objectA.fields.Title < objectB.fields.Title) return -1;
-              else if (objectA.fields.Title === objectB.fields.Title) return 0;
+          ? result.records.sort((a, b) => {
+              if (a.fields.Title < b.fields.Title) return -1;
+              else if (a.fields.Title === b.fields.Title) return 0;
               else return 1;
             })
-          : result.records.sort((objectA, objectB) => {
-              if (objectA.fields.Title < objectB.fields.Title) return 1;
-              else if (objectA.fields.Title === objectB.fields.Title) return 0;
+          : result.records.sort((a, b) => {
+              if (a.fields.Title < b.fields.Title) return 1;
+              else if (a.fields.Title === b.fields.Title) return 0;
               else return -1;
             });
 
@@ -62,6 +66,7 @@ function App() {
         const newTodo = {
           id: data.id,
           title: data.fields.Title,
+          createdTime: data.createdTime,
         };
         setTodoList((previousTodoList) => [...previousTodoList, newTodo]);
       });
@@ -69,7 +74,7 @@ function App() {
 
   const removeTodo = (id) => {
     const urlD = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/${id}`;
-
+    setIsLoading(true);
     fetch(urlD, {
       method: "DELETE",
       headers: {
@@ -81,9 +86,27 @@ function App() {
       .then(() => {
         const handleRemove = todoList.filter((todo) => todo.id !== id);
         setTodoList(handleRemove);
+        setIsLoading(false);
       })
       .catch((error) => console.error(error));
   };
+
+  function FormattedDate() {
+    const date = new Date();
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    return (
+      <div>
+        <h4 className={styles.currentDay}>
+          Today is {date.toLocaleString("en-US", options)}{" "}
+        </h4>
+      </div>
+    );
+  }
 
   return (
     <BrowserRouter>
@@ -94,21 +117,31 @@ function App() {
           path="/"
           element={
             <div className={styles.container}>
-              <h1 className={styles.h1}>Todo list</h1>
+              <h1 className={styles.h1}>To do list</h1>
+              <FormattedDate />
               <AddTodoForm onAddTodo={addTodo} />
-              <button type="button" onClick={() => setOrder(!order)}>
-                {" "}
-                button
+
+              <button
+                type="button"
+                className={styles.order}
+                onClick={() => setOrder(!order)}
+              >
+                <MdOutlineSortByAlpha />
               </button>
+
               {isLoading ? (
                 <p> Loading... </p>
               ) : (
-                <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+                <TodoList
+                  todoList={todoList}
+                  onRemoveTodo={removeTodo}
+                  isLoading={isLoading}
+                />
               )}
             </div>
           }
         />
-        <Route path="/new" element={<h1>New Todo List</h1>} />
+        <Route path="/quote" element={<Quote />} />
       </Routes>
     </BrowserRouter>
   );

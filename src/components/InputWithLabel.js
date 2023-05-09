@@ -15,6 +15,7 @@ const InputWithLabel = ({ children, todoTitle, handleTitleChange }) => {
       </label>
       <input
         className={styles.input}
+        placeholder="Enter task here"
         type="text"
         name="title"
         id="todoTitle"
